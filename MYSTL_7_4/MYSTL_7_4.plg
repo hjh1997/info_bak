@@ -1,0 +1,26 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MYSTL_7_4 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\me\AppData\Local\Temp\RSPD806.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/MYSTL_7_4.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\new_project\MYSTL_7_4\MainTest.cpp"
+]
+Creating command line "cl.exe @C:\Users\me\AppData\Local\Temp\RSPD806.tmp" 
+<h3>Output Window</h3>
+Compiling...
+MainTest.cpp
+e:\new_project\mystl_7_4\maintest.cpp(22) : warning C4101: 'it' : unreferenced local variable
+
+
+
+<h3>Results</h3>
+MainTest.obj - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
