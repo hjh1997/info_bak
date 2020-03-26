@@ -1,0 +1,332 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\graduation project.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\graduation project.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 graduation project"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "graduation project 1.0 版",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2020",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_GRADUATIONPROJECT_DIALOG DIALOGEX 0, 0, 395, 236
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "登录"
+FONT 9, "宋体"
+BEGIN
+    CTEXT           "学号",IDC_STATIC_ID,67,42,62,16
+    CTEXT           "密码",IDC_STATIC_PASSWORD,65,87,67,15,NOT WS_GROUP
+    EDITTEXT        IDC_STU_ID,145,41,119,22,ES_AUTOHSCROLL
+    EDITTEXT        IDC_STU_PASSWORD,145,83,120,21,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "登录",IDC_LOGIN,85,162,50,14
+    PUSHBUTTON      "取消",IDC_CANCLE,238,161,50,14
+END
+
+IDD_MAIN_INTERFACE DIALOG DISCARDABLE  0, 0, 336, 186
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "主界面"
+MENU IDR_MENU1
+FONT 10, "System"
+BEGIN
+END
+
+IDD_MY_INFOMATION DIALOG DISCARDABLE  0, 0, 314, 189
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "我的信息"
+FONT 11, "宋体"
+BEGIN
+    LTEXT           "学号",IDC_STATIC_ID,62,19,17,8
+    LTEXT           "姓名",IDC_STATIC_NAME,62,40,17,8
+    LTEXT           "班级",IDC_STATIC_CLASS,62,65,17,8
+    LTEXT           "联系电话",IDC_STATIC_PHONE,62,90,33,8,NOT WS_GROUP
+    LTEXT           "专业",IDC_STATIC_MAJOR,62,114,17,8
+    EDITTEXT        IDC_STU_ID,121,17,91,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NAME,121,41,91,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "确定",IDC_OK,79,145,50,14
+    EDITTEXT        IDC_CLASS,121,63,91,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "取消",IDC_CANCLE,180,145,50,14
+    EDITTEXT        IDC_PHONE,121,86,91,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_MAJOR,121,115,91,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_EXAMINATION DIALOG DISCARDABLE  0, 0, 411, 258
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "考试主界面"
+FONT 10, "System"
+BEGIN
+    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",ES_MULTILINE | WS_DISABLED | 
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP,30,25,206,101
+    GROUPBOX        "考试题目:",IDC_STATIC_QUESTION,17,13,228,117
+    GROUPBOX        "答题状态：",IDC_STATIC_STATE,261,13,129,116
+    CONTROL         "List2",IDC_LIST2,"SysListView32",WS_BORDER | WS_TABSTOP,
+                    274,25,112,96
+    GROUPBOX        "答题栏：",IDC_STATIC_ANSWER,17,136,374,55
+    LTEXT           "选择题:",IDC_STATIC_CHOICE,62,149,27,8,NOT WS_GROUP
+    CONTROL         "A",IDC_CHECK_A,"Button",BS_AUTOCHECKBOX | WS_GROUP | 
+                    WS_TABSTOP,104,149,27,8
+    CONTROL         "B",IDC_CHECK_B,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    132,149,25,8
+    CONTROL         "C",IDC_CHECK_C,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    164,150,27,8
+    CONTROL         "D",IDC_CHECK_D,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    200,150,27,8
+    LTEXT           "判断题:",IDC_STATIC_JUDGEMENT,62,164,27,8,NOT WS_GROUP
+    CONTROL         "正确",IDC_RADIO_TRUE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,103,162,32,10
+    CONTROL         "错误",IDC_RADIO_FALSE,"Button",BS_AUTORADIOBUTTON,149,
+                    162,32,10
+    LTEXT           "填空题:",IDC_STATIC_GAP,63,178,27,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT1,103,175,263,12,ES_AUTOHSCROLL
+    LTEXT           "编程题:",IDC_STATIC_PROGRAME,236,151,27,8,NOT WS_GROUP
+    PUSHBUTTON      "点击进行编程题作答",IDC_PROGRAME,275,149,77,15
+    PUSHBUTTON      "上一题",IDC_UP_QUESTION,32,205,50,14
+    PUSHBUTTON      "下一题",IDC_DOWN_QUESTION,98,205,50,14
+    PUSHBUTTON      "确定",IDC_CONFIRE,166,205,50,14
+    PUSHBUTTON      "提交试卷",IDC_COMMIT_PAPER,325,205,50,14
+END
+
+IDD_PROGRAME DIALOG DISCARDABLE  0, 0, 282, 202
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "编程题界面"
+FONT 10, "System"
+BEGIN
+    LTEXT           "答题栏：",IDC_STATIC_ANSWER,22,17,33,8,NOT WS_GROUP
+    CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",ES_MULTILINE | WS_BORDER | 
+                    WS_VSCROLL | WS_TABSTOP,33,28,222,125
+    PUSHBUTTON      "保存提交",IDC_SAVE,129,167,50,14
+    PUSHBUTTON      "取消",IDC_CANCLE,205,167,50,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "graduation project Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "graduation project\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2020\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "graduation project.EXE\0"
+            VALUE "ProductName", "graduation project 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_GRADUATIONPROJECT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 388
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_MAIN_INTERFACE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 329
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_MY_INFOMATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 307
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 182
+    END
+
+    IDD_EXAMINATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 404
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+
+    IDD_PROGRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 276
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    MENUITEM "我的信息",                    ID_MENU_INFO
+    MENUITEM "成绩查询",                    ID_MENU_SCORE
+    MENUITEM "帮助",                        ID_MENU_HELP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 graduation project(&A)..."
+    IDP_SOCKETS_INIT_FAILED "Windows 通信端口初始化失败。"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\graduation project.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
