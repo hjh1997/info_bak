@@ -6,13 +6,13 @@
 --------------------Configuration: graduation project - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\me\AppData\Local\Temp\RSPE84.tmp" with contents
+Creating temporary file "C:\Users\me\AppData\Local\Temp\RSPC4D0.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/graduation project.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
 "E:\new_project\graduation project\graduation projectDlg.cpp"
 ]
-Creating command line "cl.exe @C:\Users\me\AppData\Local\Temp\RSPE84.tmp" 
-Creating temporary file "C:\Users\me\AppData\Local\Temp\RSPE95.tmp" with contents
+Creating command line "cl.exe @C:\Users\me\AppData\Local\Temp\RSPC4D0.tmp" 
+Creating temporary file "C:\Users\me\AppData\Local\Temp\RSPC4E0.tmp" with contents
 [
 libmysql.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/graduation project.pdb" /debug /machine:I386 /out:"Debug/graduation project.exe" /pdbtype:sept 
 ".\Debug\ConnectMysql.obj"
@@ -24,18 +24,18 @@ libmysql.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/graduation 
 ".\Debug\ProgramDialog.obj"
 ".\Debug\StdAfx.obj"
 ".\Debug\graduation project.res"
+".\Debug\tool.obj"
 ]
-Creating command line "link.exe @C:\Users\me\AppData\Local\Temp\RSPE95.tmp"
+Creating command line "link.exe @C:\Users\me\AppData\Local\Temp\RSPC4E0.tmp"
 <h3>Output Window</h3>
 Compiling...
 graduation projectDlg.cpp
-E:\new_project\graduation project\graduation projectDlg.cpp(192) : warning C4244: 'initializing' : conversion from 'unsigned __int64' to 'int', possible loss of data
 Linking...
 
 
 
 <h3>Results</h3>
-graduation project.exe - 0 error(s), 1 warning(s)
+graduation project.exe - 0 error(s), 0 warning(s)
 </pre>
 </body>
 </html>

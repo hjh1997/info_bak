@@ -126,6 +126,10 @@ SOURCE=.\ProgramDialog.cpp
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
 # End Source File
+# Begin Source File
+
+SOURCE=.\tool.cpp
+# End Source File
 # End Group
 # Begin Group "Header Files"
 

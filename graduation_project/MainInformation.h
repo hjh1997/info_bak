@@ -19,7 +19,10 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CMainInformation)
 	enum { IDD = IDD_MAIN_INTERFACE };
-		// NOTE: the ClassWizard will add data members here
+	long	m_days;
+	long	m_hours;
+	long	m_minutes;
+	long	m_seconds;
 	//}}AFX_DATA
 
 
@@ -35,7 +38,9 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CMainInformation)
-		// NOTE: the ClassWizard will add member functions here
+	virtual BOOL OnInitDialog();
+	afx_msg void OnStartExam();
+	afx_msg void OnTimer(UINT nIDEvent);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

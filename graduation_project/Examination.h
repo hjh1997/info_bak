@@ -19,7 +19,9 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CExamination)
 	enum { IDD = IDD_EXAMINATION };
-		// NOTE: the ClassWizard will add data members here
+	long	m_exam_hour;
+	long	m_exam_minute;
+	long	m_exam_second;
 	//}}AFX_DATA
 
 
@@ -35,7 +37,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CExamination)
-		// NOTE: the ClassWizard will add member functions here
+	virtual BOOL OnInitDialog();
+	afx_msg void OnTimer(UINT nIDEvent);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

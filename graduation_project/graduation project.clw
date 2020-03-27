@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CGraduationprojectDlg
+LastClass=CExamination
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "graduation project.h"
@@ -13,13 +13,13 @@ Class2=CGraduationprojectDlg
 Class3=CAboutDlg
 
 ResourceCount=8
-Resource1=IDD_ABOUTBOX
+Resource1=IDD_MAIN_INTERFACE
 Resource2=IDR_MAINFRAME
-Resource3=IDD_EXAMINATION
+Resource3=IDD_PROGRAME
 Resource4=IDD_GRADUATIONPROJECT_DIALOG
-Resource5=IDD_MAIN_INTERFACE
-Resource6=IDD_PROGRAME
-Resource7=IDD_MY_INFOMATION
+Resource5=IDD_MY_INFOMATION
+Resource6=IDD_EXAMINATION
+Resource7=IDD_ABOUTBOX
 Class4=CMainInformation
 Class5=CMyInformation
 Class6=CProgramDialog
@@ -70,7 +70,17 @@ Control6=IDC_CANCLE,button,1342242816
 [DLG:IDD_MAIN_INTERFACE]
 Type=1
 Class=CMainInformation
-ControlCount=0
+ControlCount=10
+Control1=IDC_START_EXAM,button,1342242816
+Control2=IDC_STATIC,button,1342177287
+Control3=IDC_HOUR,edit,1350631552
+Control4=IDC_STATIC,static,1342308352
+Control5=IDC_MINUTE,edit,1350631552
+Control6=IDC_STATIC,static,1342308352
+Control7=IDC_SECOND,edit,1350631552
+Control8=IDC_DAY,edit,1350631552
+Control9=IDC_STATIC,static,1342308352
+Control10=IDC_STATIC,static,1342308352
 
 [MNU:IDR_MENU1]
 Type=1
@@ -100,28 +110,34 @@ Control12=IDC_MAJOR,combobox,1344340226
 [DLG:IDD_EXAMINATION]
 Type=1
 Class=CExamination
-ControlCount=21
-Control1=IDC_RICHEDIT1,RICHEDIT,1486946308
-Control2=IDC_STATIC_QUESTION,button,1342177287
-Control3=IDC_STATIC_STATE,button,1342177287
-Control4=IDC_LIST2,SysListView32,1350631424
-Control5=IDC_STATIC_ANSWER,button,1342177287
-Control6=IDC_STATIC_CHOICE,static,1342177280
-Control7=IDC_CHECK_A,button,1342373891
-Control8=IDC_CHECK_B,button,1342242819
-Control9=IDC_CHECK_C,button,1342242819
-Control10=IDC_CHECK_D,button,1342242819
-Control11=IDC_STATIC_JUDGEMENT,static,1342177280
-Control12=IDC_RADIO_TRUE,button,1342308361
-Control13=IDC_RADIO_FALSE,button,1342177289
-Control14=IDC_STATIC_GAP,static,1342177280
-Control15=IDC_EDIT1,edit,1350631552
-Control16=IDC_STATIC_PROGRAME,static,1342177280
-Control17=IDC_PROGRAME,button,1342242816
-Control18=IDC_UP_QUESTION,button,1342242816
-Control19=IDC_DOWN_QUESTION,button,1342242816
-Control20=IDC_CONFIRE,button,1342242816
-Control21=IDC_COMMIT_PAPER,button,1342242816
+ControlCount=27
+Control1=IDC_STATIC_QUESTION,button,1342177287
+Control2=IDC_STATIC_STATE,button,1342177287
+Control3=IDC_LIST2,SysListView32,1350631424
+Control4=IDC_STATIC_ANSWER,button,1342177287
+Control5=IDC_STATIC_CHOICE,static,1342177280
+Control6=IDC_CHECK_A,button,1342373891
+Control7=IDC_CHECK_B,button,1342242819
+Control8=IDC_CHECK_C,button,1342242819
+Control9=IDC_CHECK_D,button,1342242819
+Control10=IDC_STATIC_JUDGEMENT,static,1342177280
+Control11=IDC_RADIO_TRUE,button,1342308361
+Control12=IDC_RADIO_FALSE,button,1342177289
+Control13=IDC_STATIC_GAP,static,1342177280
+Control14=IDC_EDIT1,edit,1350631552
+Control15=IDC_STATIC_PROGRAME,static,1342177280
+Control16=IDC_PROGRAME,button,1342242816
+Control17=IDC_UP_QUESTION,button,1342242816
+Control18=IDC_DOWN_QUESTION,button,1342242816
+Control19=IDC_CONFIRE,button,1342242816
+Control20=IDC_COMMIT_PAPER,button,1342242816
+Control21=IDC_STATIC,static,1342308352
+Control22=IDC_HOUR,edit,1476460673
+Control23=IDC_MINUTE,edit,1476460673
+Control24=IDC_SECOND,edit,1476460673
+Control25=IDC_STATIC,static,1342308353
+Control26=IDC_STATIC,static,1342308353
+Control27=IDC_TEXTBOX2,{8BD21D10-EC42-11CE-9E0D-00AA006002F3},1342242816
 
 [DLG:IDD_PROGRAME]
 Type=1
@@ -138,7 +154,8 @@ HeaderFile=MainInformation.h
 ImplementationFile=MainInformation.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=CMainInformation
+LastObject=ID_MENU_INFO
+VirtualFilter=dWC
 
 [CLS:CMyInformation]
 Type=0
@@ -163,4 +180,5 @@ ImplementationFile=Examination.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=CExamination
+VirtualFilter=dWC
 

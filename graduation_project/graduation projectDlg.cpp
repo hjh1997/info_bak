@@ -4,8 +4,12 @@
 #include "stdafx.h"
 #include "graduation project.h"
 #include "graduation projectDlg.h"
+#include "common.h"
 #include "ConnectMysql.h"
+#include "MainInformation.h"
 
+CTime examtime;
+CTime exam_longtime;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -179,16 +183,56 @@ HCURSOR CGraduationprojectDlg::OnQueryDragIcon()
 void CGraduationprojectDlg::OnLogin() 
 {
 	// TODO: Add your control notification handler code here
+	UpdateData();
+	ConnectSql();
+	//严重密码是否正确
+	CString sql1 = "select * from Information where stu_number =\""+m_stu_id+"\"";
+	char *str1 = (char*)(LPCTSTR)sql1;
+	Query(str1);
+	MYSQL_ROW row=NULL;
+	row=mysql_fetch_row(result);
+	CString re = row[1];
+	if (0 == m_stu_password.Compare(re))
+	{
+		AfxMessageBox("登录成功");
+	}
+	else
+	{
+		AfxMessageBox("密码错误，请重试");
+		return;
+	}
+	//1表示考试场次,登录后会连接数据库获取考试信息
+	CString sql = "select * from examtime where exam_session =1"; 
+	char *str = (char*)(LPCTSTR)sql;
+	Query(str);
+	row=mysql_fetch_row(result);
+	CString res(row[1]);  //获取考试日期
+	CString res1(row[2]); //获取考试时长
+	//将CString转化为CTimespan;
+	CTimeSpan span = CstringtoCtimespan(res1); 
+    // 将CString 转换为Ctime类型
+	examtime = CStringtoCtime(res);
+	//计算出考试最终结束的时间，然后减去当前的时间 就是倒计时的时间。
+	exam_longtime = examtime+span;
 
+	CMainInformation mainframe;
+	mainframe.DoModal();
+	mysql_free_result(result);
+	mysql_close(&mysql);
+	mysql_library_end();
+/*	
+    测试成功
 	// 获取edit 信息。
 	UpdateData();
 	//连接数据库	
 	ConnectSql();
-	CString sql = "select * from Information where stu_number =\""+m_stu_id+"\" ";
+	CString sql = "select * from Information where stu_number =\""+m_stu_id+"\"";
 	AfxMessageBox(sql);
+
 	char *str = (char*)(LPCTSTR)sql;
 	//AfxMessageBox(tmp);
 	Query(str);
+
 	int rowcount=mysql_num_rows(result);  //获取返回结果的行数
 	MYSQL_ROW row=NULL;
 	row=mysql_fetch_row(result); //获取每行数据 
@@ -199,10 +243,6 @@ void CGraduationprojectDlg::OnLogin()
 		AfxMessageBox("登录成功");
 	}
 	else
-		AfxMessageBox("密码错误");
-	
-	mysql_free_result(result);
-	mysql_close(&mysql);
-	mysql_library_end();
-	
+		AfxMessageBox("密码错误，请重试");
+*/
 }
