@@ -7,10 +7,14 @@
 #include "common.h"
 #include "ConnectMysql.h"
 #include "MainInformation.h"
-
+#include "studentInfo.h"
+#include "topic.h"
 CTime examtime;
 CTime exam_longtime;
-
+Exam_question exam_ques;
+question_info exam_info;
+vector<char*> answer;
+//Student student;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -185,7 +189,51 @@ void CGraduationprojectDlg::OnLogin()
 	// TODO: Add your control notification handler code here
 	UpdateData();
 	ConnectSql();
-	//严重密码是否正确
+	CString sqltoInfo = "select * from exam_quesition";
+	char *sqlstr = (char*)(LPCTSTR)sqltoInfo;
+	Query(sqlstr);
+	int rowcount=mysql_num_rows(result); //获取result行数
+	unsigned int fieldcount=mysql_num_fields(result); //获取result列数
+	MYSQL_ROW row=NULL;
+	unsigned int i;
+	row=mysql_fetch_row(result);
+	char *que=NULL;
+	char *p = NULL;
+	while(NULL != row)
+	{
+		int id = 0;int type = 0;int score = 0;
+		for(i=0;i<fieldcount;i++)
+		{
+			if(0 == i)
+			{
+				id = atoi(row[0]);
+			}
+			if(2 == i)
+			{
+				type =atoi(row[2]);
+			}
+			if(4 == i)
+			{
+				score = atoi(row[4]);
+			}
+			if(1 == i)
+			{
+				que = new char[512];
+				strcpy(que,row[1]);
+			}
+			if(5 == i)
+			{
+				p = new char [40];
+				strcpy(p,row[3]);
+			}
+		}
+		exam_info.Push_back(id,type,score,p);
+		exam_ques.e_push_back(que);
+		answer.push_back(NULL);
+		row = mysql_fetch_row(result);
+	}
+	/*
+	//判断密码是否正确
 	CString sql1 = "select * from Information where stu_number =\""+m_stu_id+"\"";
 	char *str1 = (char*)(LPCTSTR)sql1;
 	Query(str1);
@@ -214,7 +262,7 @@ void CGraduationprojectDlg::OnLogin()
 	examtime = CStringtoCtime(res);
 	//计算出考试最终结束的时间，然后减去当前的时间 就是倒计时的时间。
 	exam_longtime = examtime+span;
-
+	*/
 	CMainInformation mainframe;
 	mainframe.DoModal();
 	mysql_free_result(result);

@@ -19,6 +19,7 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CExamination)
 	enum { IDD = IDD_EXAMINATION };
+	CListCtrl	m_mylist;
 	long	m_exam_hour;
 	long	m_exam_minute;
 	long	m_exam_second;
@@ -39,6 +40,10 @@ protected:
 	//{{AFX_MSG(CExamination)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnDownQuestion();
+	afx_msg void OnUpQuestion();
+	afx_msg void OnDblclkList(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnPaint();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -128,7 +128,15 @@ SOURCE=.\StdAfx.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\studentInfo.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\tool.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\topic.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -173,6 +181,14 @@ SOURCE=.\Resource.h
 # Begin Source File
 
 SOURCE=.\StdAfx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\studentInfo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\topic.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

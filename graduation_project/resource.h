@@ -32,18 +32,8 @@
 #define IDC_RICHEDIT1                   1020
 #define IDC_STATIC_QUESTION             1021
 #define IDC_STATIC_STATE                1022
-#define IDC_LIST2                       1026
+#define IDC_LIST                        1026
 #define IDC_STATIC_ANSWER               1027
-#define IDC_STATIC_CHOICE               1028
-#define IDC_CHECK_A                     1029
-#define IDC_CHECK_B                     1030
-#define IDC_CHECK_C                     1031
-#define IDC_CHECK_D                     1032
-#define IDC_STATIC_JUDGEMENT            1033
-#define IDC_RADIO_TRUE                  1034
-#define IDC_RADIO_FALSE                 1035
-#define IDC_STATIC_GAP                  1036
-#define IDC_STATIC_PROGRAME             1037
 #define IDC_PROGRAME                    1038
 #define IDC_UP_QUESTION                 1039
 #define IDC_DOWN_QUESTION               1040
@@ -55,7 +45,17 @@
 #define IDC_SECOND                      1048
 #define IDC_DAY                         1049
 #define IDC_HOUR                        1050
-#define IDC_TEXTBOX2                    1055
+#define IDC_QUESTION                    1056
+#define IDC_CHECK1                      1057
+#define IDC_CHECK2                      1058
+#define IDC_CHECK3                      1059
+#define IDC_CHECK4                      1060
+#define IDC_RADIO1                      1061
+#define IDC_RADIO2                      1062
+#define IDC_RADIO3                      1063
+#define IDC_RADIO4                      1064
+#define IDC_STATIC1                     1065
+#define IDC_STATIC2                     1066
 #define ID_MENU_INFO                    32771
 #define ID_MENU_SCORE                   32772
 #define ID_MENU_HELP                    32773
@@ -66,7 +66,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1056
+#define _APS_NEXT_CONTROL_VALUE         1067
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
