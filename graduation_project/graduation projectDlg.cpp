@@ -14,7 +14,7 @@ CTime exam_longtime;
 Exam_question exam_ques;
 question_info exam_info;
 vector<char*> answer;
-//Student student;
+Student student;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -189,12 +189,20 @@ void CGraduationprojectDlg::OnLogin()
 	// TODO: Add your control notification handler code here
 	UpdateData();
 	ConnectSql();
+	//查询学生基本信息
+	CString sql1 = "select * from Information where stu_number =\""+m_stu_id+"\"";
+	char *str1 = (char*)(LPCTSTR)sql1;
+	Query(str1);
+	MYSQL_ROW row=NULL;
+	row=mysql_fetch_row(result);
+	student.Set_info(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7]); //保存学生基本信息
+	AfxMessageBox("查完个人信息");
 	CString sqltoInfo = "select * from exam_quesition";
 	char *sqlstr = (char*)(LPCTSTR)sqltoInfo;
 	Query(sqlstr);
 	int rowcount=mysql_num_rows(result); //获取result行数
 	unsigned int fieldcount=mysql_num_fields(result); //获取result列数
-	MYSQL_ROW row=NULL;
+	//MYSQL_ROW row=NULL;
 	unsigned int i;
 	row=mysql_fetch_row(result);
 	char *que=NULL;

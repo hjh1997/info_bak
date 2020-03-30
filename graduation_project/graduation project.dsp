@@ -115,6 +115,10 @@ SOURCE=.\MainInformation.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\My_Score.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\MyInformation.cpp
 # End Source File
 # Begin Source File
@@ -165,6 +169,10 @@ SOURCE=".\graduation projectDlg.h"
 # Begin Source File
 
 SOURCE=.\MainInformation.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\My_Score.h
 # End Source File
 # Begin Source File
 

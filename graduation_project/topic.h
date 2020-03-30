@@ -4,6 +4,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+extern  vector<char*> answer;      //用户答题的内容
 class Exam_question
 {
 public:
@@ -30,6 +31,8 @@ public:
 			for(i=0;i<e_size();i++)
 			{
 				delete [] str[i];
+				if(NULL != answer[i])
+					delete [] answer[i];
 			}
 		}
 	}
@@ -101,5 +104,4 @@ public:
 
 extern  Exam_question exam_ques;
 extern  question_info exam_info;
-extern  vector<char*> answer;      //用户答题的内容
 #endif

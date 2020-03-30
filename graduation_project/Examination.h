@@ -44,6 +44,9 @@ protected:
 	afx_msg void OnUpQuestion();
 	afx_msg void OnDblclkList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnPaint();
+	afx_msg void OnConfire();
+	afx_msg void OnCommitPaper();
+	afx_msg void OnClose();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

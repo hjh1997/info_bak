@@ -41,6 +41,9 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnStartExam();
 	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnCancle();
+	afx_msg void OnMenuInfo();
+	afx_msg void OnMenuScore();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

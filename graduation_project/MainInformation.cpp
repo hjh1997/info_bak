@@ -8,6 +8,7 @@
 #include "ConnectMysql.h"
 #include "Examination.h"
 #include "MyInformation.h"
+#include "My_Score.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -46,6 +47,9 @@ BEGIN_MESSAGE_MAP(CMainInformation, CDialog)
 	//{{AFX_MSG_MAP(CMainInformation)
 	ON_BN_CLICKED(IDC_START_EXAM, OnStartExam)
 	ON_WM_TIMER()
+	ON_BN_CLICKED(IDC_CANCLE, OnCancle)
+	ON_COMMAND(ID_MENU_INFO, OnMenuInfo)
+	ON_COMMAND(ID_MENU_SCORE, OnMenuScore)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -66,7 +70,20 @@ void CMainInformation::OnStartExam()
 {
 	// TODO: Add your control notification handler code here
 	CExamination my;
-	my.DoModal();
+	int res = my.DoModal();
+	if(3 == res)
+	{
+		GetDlgItem(IDC_START_EXAM)->SetWindowText("考试结束");
+		GetDlgItem(IDC_START_EXAM)->EnableWindow(FALSE);
+		AfxMessageBox("考试结束，您可以在\"成绩查询\"中查看您的此次考试成绩！");
+	}
+	else
+	{
+		AfxMessageBox("考试中途结束，您可以点击 开始考试 继续作答！");
+		return;
+	}
+
+	
 	/*CMyInformation my;
 	my.DoModal();*/
 }
@@ -89,4 +106,26 @@ void CMainInformation::OnTimer(UINT nIDEvent)
 
 	UpdateData(false);
 	CDialog::OnTimer(nIDEvent);
+}
+
+void CMainInformation::OnCancle() 
+{
+	// TODO: Add your control notification handler code here
+	if (MessageBox(_T("您确定退出吗?"), _T("提示"),MB_YESNO|MB_ICONWARNING)  == IDNO)
+	     return;
+	EndDialog(1);
+}
+
+void CMainInformation::OnMenuInfo() 
+{
+	// TODO: Add your command handler code here
+	CMyInformation myinfo;
+	myinfo.DoModal();
+}
+
+void CMainInformation::OnMenuScore() 
+{
+	// TODO: Add your command handler code here
+	CMy_Score myscore; //没有在一个类中
+	myscore.DoModal();
 }

@@ -26,6 +26,49 @@ CTime CStringtoCtime(const CString res)
 	CTime cTimeFromDB(systime);
 	return cTimeFromDB;
 }
+int singleChoice(int index) //单选
+{
+	if(stricmp(answer[index],exam_info.answer[index]))
+		return exam_info.score[index];
+	return 0;
+}
+int mutileChoice(int index) //多选  
+{
+	char *p = answer[index];
+	while(*p != '\0')
+	{
+		char *tmp = exam_info.answer[index];
+		while(*tmp != '\0')
+		{
+			if(*p != toupper(*tmp))
+				tmp++;
+			if(*p == toupper(*tmp))
+				break;
+		}
+		if(*tmp == '\0') //说明有选项未匹配到
+			break;
+		p++;
+	}
+	if(*p != '\0') //有未匹配到的选项
+		return 0;
+	return exam_info.score[index];
+}
+int gapFilling(int index)   //填空
+{
+
+	return 0;
+}
+int isTrue(int index)       //判断题
+{
+	if(stricmp(answer[index],exam_info.answer[index])) // 判断AB
+		return exam_info.score[index];
+	return 0;
+}
+int program(int index)      //编程题
+{
+	return 0;
+}
+
 
 /*	第二种办法
 	COleVariant vtime(res);
