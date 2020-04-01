@@ -11,6 +11,7 @@
 #include "topic.h"
 CTime examtime;
 CTime exam_longtime;
+CString exam_long;
 Exam_question exam_ques;
 question_info exam_info;
 vector<char*> answer;
@@ -97,6 +98,7 @@ BEGIN_MESSAGE_MAP(CGraduationprojectDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_LOGIN, OnLogin)
+	ON_BN_CLICKED(IDC_CANCLE, OnCancle)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -195,8 +197,25 @@ void CGraduationprojectDlg::OnLogin()
 	Query(str1);
 	MYSQL_ROW row=NULL;
 	row=mysql_fetch_row(result);
+	if(row == NULL)
+	{
+		AfxMessageBox("登录信息有错,请确认后登录！");
+		return;
+	}
+	CString re = row[1];
+	if (0 == m_stu_password.Compare(re))
+	{
+		AfxMessageBox("登录成功");
+	}
+	else
+	{
+		AfxMessageBox("密码错误，请重试!");
+		return;
+	}
 	student.Set_info(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7]); //保存学生基本信息
 	AfxMessageBox("查完个人信息");
+	AfxMessageBox(row[5]);
+	CString find_time(row[5]);  //保存学院信息，用来查询此学院的考试时间
 	CString sqltoInfo = "select * from exam_quesition";
 	char *sqlstr = (char*)(LPCTSTR)sqltoInfo;
 	Query(sqlstr);
@@ -207,7 +226,7 @@ void CGraduationprojectDlg::OnLogin()
 	row=mysql_fetch_row(result);
 	char *que=NULL;
 	char *p = NULL;
-	while(NULL != row)
+	while(NULL != row)   //保存题目等信息
 	{
 		int id = 0;int type = 0;int score = 0;
 		for(i=0;i<fieldcount;i++)
@@ -222,14 +241,14 @@ void CGraduationprojectDlg::OnLogin()
 			}
 			if(4 == i)
 			{
-				score = atoi(row[4]);
+				score = atof(row[4]);
 			}
 			if(1 == i)
 			{
 				que = new char[512];
 				strcpy(que,row[1]);
 			}
-			if(5 == i)
+			if(3 == i)
 			{
 				p = new char [40];
 				strcpy(p,row[3]);
@@ -257,20 +276,24 @@ void CGraduationprojectDlg::OnLogin()
 		AfxMessageBox("密码错误，请重试");
 		return;
 	}
-	//1表示考试场次,登录后会连接数据库获取考试信息
-	CString sql = "select * from examtime where exam_session =1"; 
-	char *str = (char*)(LPCTSTR)sql;
-	Query(str);
+	*/
+	//1表示考试场次,登录后会连接数据库获取考试信息 find_time
+	//select exam_time,exam_long from academy_time,examtime where academy_name="计算机学院"\
+	//and academy_time_session = exam_session;
+	CString sqltotime = "select exam_time,exam_long from academy_time,examtime where academy_name=\""+find_time+"\""+"and academy_time_session = exam_session"; 
+	char *strtime = (char*)(LPCTSTR)sqltotime;
+	Query(strtime);
 	row=mysql_fetch_row(result);
-	CString res(row[1]);  //获取考试日期
-	CString res1(row[2]); //获取考试时长
-	//将CString转化为CTimespan;
-	CTimeSpan span = CstringtoCtimespan(res1); 
+	CString res(row[0]);  //获取考试日期
+	CString res1(row[1]); //获取考试时长
+	AfxMessageBox(res1);
+	//将CString转化为CTimespan; 里面也会对主界面的显示考试时长进行赋值
+	CTimeSpan span = CstringtoCtimespan(res1);
     // 将CString 转换为Ctime类型
 	examtime = CStringtoCtime(res);
 	//计算出考试最终结束的时间，然后减去当前的时间 就是倒计时的时间。
 	exam_longtime = examtime+span;
-	*/
+
 	CMainInformation mainframe;
 	mainframe.DoModal();
 	mysql_free_result(result);
@@ -301,4 +324,10 @@ void CGraduationprojectDlg::OnLogin()
 	else
 		AfxMessageBox("密码错误，请重试");
 */
+}
+
+void CGraduationprojectDlg::OnCancle() 
+{
+	// TODO: Add your control notification handler code here
+	EndDialog(1); //正常退出
 }

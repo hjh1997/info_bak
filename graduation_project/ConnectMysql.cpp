@@ -28,7 +28,7 @@ int ConnectSql()
 		mysql_library_end();
 		return -2;
 	}
-	
+	//gb2312
 	if(0!=mysql_options(&mysql,MYSQL_SET_CHARSET_NAME,"gb2312")) //数据库连接选项，将字体转换
     { 
 		mysql_close(&mysql);

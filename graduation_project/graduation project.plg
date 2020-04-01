@@ -6,13 +6,13 @@
 --------------------Configuration: graduation project - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\me\AppData\Local\Temp\RSP651.tmp" with contents
+Creating temporary file "C:\Users\me\AppData\Local\Temp\RSP85E9.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/graduation project.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"E:\new_project\graduation project\MyInformation.cpp"
+"E:\new_project\graduation project\graduation projectDlg.cpp"
 ]
-Creating command line "cl.exe @C:\Users\me\AppData\Local\Temp\RSP651.tmp" 
-Creating temporary file "C:\Users\me\AppData\Local\Temp\RSP652.tmp" with contents
+Creating command line "cl.exe @C:\Users\me\AppData\Local\Temp\RSP85E9.tmp" 
+Creating temporary file "C:\Users\me\AppData\Local\Temp\RSP85EA.tmp" with contents
 [
 libmysql.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/graduation project.pdb" /debug /machine:I386 /out:"Debug/graduation project.exe" /pdbtype:sept 
 ".\Debug\ConnectMysql.obj"
@@ -29,10 +29,10 @@ libmysql.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/graduation 
 ".\Debug\topic.obj"
 ".\Debug\graduation project.res"
 ]
-Creating command line "link.exe @C:\Users\me\AppData\Local\Temp\RSP652.tmp"
+Creating command line "link.exe @C:\Users\me\AppData\Local\Temp\RSP85EA.tmp"
 <h3>Output Window</h3>
 Compiling...
-MyInformation.cpp
+graduation projectDlg.cpp
 Linking...
 
 

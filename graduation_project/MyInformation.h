@@ -22,8 +22,8 @@ public:
 	CComboBox	m_major;
 	CString	m_id;
 	CString	m_name;
-	CString	m_class;
 	CString	m_phone;
+	CString	m_academy;
 	//}}AFX_DATA
 
 
@@ -41,6 +41,7 @@ protected:
 	//{{AFX_MSG(CMyInformation)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnChange();
+	afx_msg void OnClose();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

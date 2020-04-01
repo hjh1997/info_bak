@@ -46,7 +46,7 @@ class question_info  //此类与类目类的下标序号信息一一对应
 {
 public:
 	question_info(){use_count++;}
-	void Push_back(int id,int type,int score,char *ptr);
+	void Push_back(int id,int type,float score,char *ptr);
 	int getsize()const
 	{
 		return answer.size();
@@ -97,7 +97,7 @@ public:
 public:
 	static vector<int> id;
 	static vector<int> type;
-    static vector<int> score;
+    static vector<float> score;
 	static vector<char*> answer; 
 	static int use_count;
 };

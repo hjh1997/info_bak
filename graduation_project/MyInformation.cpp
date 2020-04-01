@@ -22,8 +22,8 @@ CMyInformation::CMyInformation(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CMyInformation)
 	m_id = _T("");
 	m_name = _T("");
-	m_class = _T("");
 	m_phone = _T("");
+	m_academy = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -32,11 +32,10 @@ void CMyInformation::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CMyInformation)
-	DDX_Control(pDX, IDC_MAJOR, m_major);
 	DDX_Text(pDX, IDC_STU_ID, m_id);
 	DDX_Text(pDX, IDC_NAME, m_name);
-	DDX_Text(pDX, IDC_CLASS, m_class);
 	DDX_Text(pDX, IDC_PHONE, m_phone);
+	DDX_Text(pDX, IDC_ACADEMY, m_academy);
 	//}}AFX_DATA_MAP
 }
 
@@ -44,6 +43,7 @@ void CMyInformation::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CMyInformation, CDialog)
 	//{{AFX_MSG_MAP(CMyInformation)
 	ON_BN_CLICKED(IDC_CHANGE, OnChange)
+	ON_BN_CLICKED(IDC_CLOSE, OnClose)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -57,7 +57,7 @@ BOOL CMyInformation::OnInitDialog()
 	// TODO: Add extra initialization here
 	m_id = CString(student.stu_number);
 	m_name = CString(student.stu_name);
-	m_class = CString(student.stu_class);
+	m_academy = CString(student.stu_academy);
 	m_phone = CString(student.stu_phone);
 
 	UpdateData(false);
@@ -81,4 +81,10 @@ void CMyInformation::OnChange()
 	//mysql_free_result(result);
 	mysql_close(&mysql);
 	mysql_library_end();
+}
+
+void CMyInformation::OnClose() 
+{
+	// TODO: Add your control notification handler code here
+	EndDialog(1);
 }

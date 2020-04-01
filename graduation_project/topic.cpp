@@ -8,7 +8,7 @@ int Exam_question::current = -1;
 int question_info::use_count = 0;
 vector<int> question_info::id;
 vector<int> question_info::type;
-vector<int> question_info::score;
+vector<float> question_info::score;
 vector<char*> question_info::answer;
 char*&Exam_question::operator [](const int n)const
 {
@@ -66,7 +66,7 @@ void Exam_question::e_reserver(int cap)
 
 ////////////////////////////////////////////
 
-void question_info::Push_back(int id_,int type_,int score_,char *ptr_)
+void question_info::Push_back(int id_,int type_,float score_,char *ptr_)
 {
 	id.push_back(id_);
 	type.push_back(type_);

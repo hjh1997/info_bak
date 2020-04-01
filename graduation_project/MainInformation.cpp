@@ -9,6 +9,7 @@
 #include "Examination.h"
 #include "MyInformation.h"
 #include "My_Score.h"
+bool is_finished = 0;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -59,7 +60,7 @@ END_MESSAGE_MAP()
 BOOL CMainInformation::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	
+	GetDlgItem(IDC_EXAM_TIME)->SetWindowText(exam_long);
 	// TODO: Add extra initialization here
 	SetTimer(1,1000,NULL);
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -82,8 +83,11 @@ void CMainInformation::OnStartExam()
 		AfxMessageBox("考试中途结束，您可以点击 开始考试 继续作答！");
 		return;
 	}
-
-	
+	float result = calculate();
+	is_finished = 1;
+	CString str;
+	str.Format("%f",result);
+	AfxMessageBox(str);
 	/*CMyInformation my;
 	my.DoModal();*/
 }
@@ -126,6 +130,11 @@ void CMainInformation::OnMenuInfo()
 void CMainInformation::OnMenuScore() 
 {
 	// TODO: Add your command handler code here
+	if(!is_finished)
+	{
+		AfxMessageBox("您还没有参加考试，无法查看成绩!");
+		return;
+	}
 	CMy_Score myscore; //没有在一个类中
 	myscore.DoModal();
 }

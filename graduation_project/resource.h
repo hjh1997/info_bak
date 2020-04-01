@@ -20,13 +20,11 @@
 #define IDC_STU_PASSWORD                1003
 #define IDC_LOGIN                       1004
 #define IDC_CANCLE                      1005
-#define IDC_CLASS                       1007
+#define IDC_ACADEMY                     1007
 #define IDC_PHONE                       1009
-#define IDC_MAJOR                       1010
 #define IDC_STATIC_NAME                 1011
-#define IDC_STATIC_CLASS                1012
+#define IDC_STATIC_ACDAMY               1012
 #define IDC_STATIC_PHONE                1013
-#define IDC_STATIC_MAJOR                1014
 #define IDC_STU_ID                      1015
 #define IDC_NAME                        1016
 #define IDC_RICHEDIT1                   1020
@@ -59,6 +57,11 @@
 #define IDC_SURE                        1068
 #define IDC_CHANGE                      1070
 #define IDC_CLOSE                       1071
+#define IDC_STATIC_CHOICE               1072
+#define IDC_STATIC_ISTRUE               1073
+#define IDC_STATIC_GAPFILL              1074
+#define IDC_STATIC_PROGRAMER            1075
+#define IDC_EXAM_TIME                   1078
 #define ID_MENU_INFO                    32771
 #define ID_MENU_SCORE                   32772
 #define ID_MENU_HELP                    32773
@@ -69,7 +72,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        140
 #define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1072
+#define _APS_NEXT_CONTROL_VALUE         1079
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

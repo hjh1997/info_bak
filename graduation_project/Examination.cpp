@@ -59,6 +59,7 @@ BOOL CExamination::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	// TODO: Add extra initialization here
+	//初始化题目
 	GetDlgItem(IDC_QUESTION)->SetWindowText(exam_ques[0]);
 
 	//初始化listctrl
@@ -134,9 +135,12 @@ void CExamination::OnPaint()
 	// TODO: Add your message handler code here
 	int current = exam_ques.e_get_current();
 	int type = exam_info.get_type(current);
+	
 	if(1 == type) //单选 ，只显示 radio1-4
 	{
-		GetDlgItem(IDC_STATIC2)->SetWindowText("(单选题)");
+		CString str;
+		str.Format("(单选题)%0.1f分",exam_info.score[current]);
+		GetDlgItem(IDC_STATIC2)->SetWindowText(str);
 		GetDlgItem(IDC_CHECK1)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK2)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK3)->ShowWindow(false);
@@ -167,7 +171,9 @@ void CExamination::OnPaint()
 	}
 	if(2 == type) //判断题  只保留radio1-2
 	{
-		GetDlgItem(IDC_STATIC2)->SetWindowText("(判断题)");
+		CString str;
+		str.Format("(判断题)%0.1f分",exam_info.score[current]);
+		GetDlgItem(IDC_STATIC2)->SetWindowText(str);
 		GetDlgItem(IDC_CHECK1)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK2)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK3)->ShowWindow(false);
@@ -192,7 +198,9 @@ void CExamination::OnPaint()
 	}
 	if(3 == type) //填空题 只保留idet1
 	{
-		GetDlgItem(IDC_STATIC2)->SetWindowText("(填空题)");
+		CString str;
+		str.Format("(填空题)%0.1f分",exam_info.score[current]);
+		GetDlgItem(IDC_STATIC2)->SetWindowText(str);
 		GetDlgItem(IDC_STATIC1)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK1)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK2)->ShowWindow(false);
@@ -214,7 +222,9 @@ void CExamination::OnPaint()
 	}
 	if(4 == type) //多选 只保留check1-4
 	{
-		GetDlgItem(IDC_STATIC2)->SetWindowText("(多选题)");
+		CString str;
+		str.Format("(多选题)%0.1f分",exam_info.score[current]);
+		GetDlgItem(IDC_STATIC2)->SetWindowText(str);
 		GetDlgItem(IDC_STATIC1)->ShowWindow(false);
 		GetDlgItem(IDC_PROGRAME)->ShowWindow(false);
 		GetDlgItem(IDC_RADIO3)->ShowWindow(false);
@@ -255,7 +265,9 @@ void CExamination::OnPaint()
 	}
 	if(5 == type) //编程题 只保留programe
 	{
-		GetDlgItem(IDC_STATIC2)->SetWindowText("(编程题)");
+		CString str;
+		str.Format("(编程题)%0.1f分",exam_info.score[current]);
+		GetDlgItem(IDC_STATIC2)->SetWindowText(str);
 		GetDlgItem(IDC_STATIC1)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK1)->ShowWindow(false);
 		GetDlgItem(IDC_CHECK2)->ShowWindow(false);
@@ -302,8 +314,9 @@ void CExamination::OnConfire()
 				return;
 			}
 			p = new char[2];
-			memset(p,0,2);
-			strcpy(p,&str);
+			memset(p,'\0',2);
+			strncpy(p,&str,1);
+			AfxMessageBox(p);
 			answer[current] = p; //让答案的指针改变
 			break;
 		case 2:
@@ -318,7 +331,7 @@ void CExamination::OnConfire()
 			}
 			p = new char[2];
 			memset(p,0,2);
-			strcpy(p,&str);
+			strncpy(p,&str,1);
 			answer[current] = p;
 			break;
 		case 3:
